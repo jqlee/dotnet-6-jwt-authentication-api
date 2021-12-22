@@ -26,10 +26,19 @@ var app = builder.Build();
         .AllowAnyMethod()
         .AllowAnyHeader());
 
+    app.MapGet("/", ()=> "service starts.");
+    app.MapGet("/hello", ()=> "Hello world!");
+
+
     // custom jwt auth middleware
     app.UseMiddleware<JwtMiddleware>();
 
     app.MapControllers();
 }
 
-app.Run("http://localhost:4000");
+
+// vscode
+// app.Run("http://localhost:4000");
+
+// vs
+app.Run();
